@@ -1,0 +1,30 @@
+<div *ngIf="tasks?.length > 0;else noTasks">
+  <ul>
+    <li class="card" *ngFor="let task of tasks">
+      <div class="card-body">
+        <strong [ngClass]="{'done': task.done}">{{ task.ingredient }}</strong>
+        <!-- <span>: {{ task.description }}</span> -->
+        <a (click)="check(task.id)"><i class="fas fa-check"></i></a>
+        <a (click)="deleteIngredient(task.id)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </a>
+
+      </div>
+
+    </li>
+  </ul>
+</div>
+
+<ng-template #noTasks>
+  <h5>No has ingresado ingredientes</h5>
+</ng-template>
+
+
+
+<!-- <ul class="list-group">
+  <li class="list-group-item " *ngFor="let ingredient of ingredients; let i = index">
+    <span>{{ ingredient }}</span>
+    <button type="button" (click)="deleteIngredient(i)"><i class="fas fa-trash-alt"></i></button>
+  </li>
+  <li #noTexts><p>No hay ingredientes aún</p></li>
+</ul>*ngIf="currentTask !== task.id" -->

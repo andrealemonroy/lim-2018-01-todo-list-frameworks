@@ -14,18 +14,21 @@ export class FirebaseService {
     return new Promise((resolve) => {
       this.db.database.ref('ingredient/' + date)
         .set({
-          ingredient,
-          id: date
+           id: date,
+           ingredient: ingredient
         });
       resolve(true);
     });
   }
-  getTasks() {
+    getTasks() {
     return this.db.list('ingredient').valueChanges();
   }
   deleteIngredientdb(id) {
     const item = this.db.object('ingredient/' + id);
     item.remove();
   }
-
+  check(id) {
+    const item = this.db.object('ingredient/' + id);
+    item.update({done: true});
+  }
 }

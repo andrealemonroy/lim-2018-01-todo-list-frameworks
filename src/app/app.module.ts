@@ -5,6 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { FormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { TodolistComponent } from './components/todolist/todolist.component';
   ],
   imports: [
     BrowserModule,
+    AngularFontAwesomeModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule

@@ -9,20 +9,17 @@ import { FirebaseService } from '../../services/firebase.service';
   encapsulation: ViewEncapsulation.None
 })
 export class TodolistComponent implements OnInit {
-  task = {
-   title: '',
-   description: ''
-  };
+  task: any;
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    if (this.task.title !== '' && this.task.description !== '') {
+    if (this.task !== '') {
       this.firebaseService.addIngredientdb(this.task);
-      this.task.title = '';
-      this.task.description = '';
+      this.task = '';
+      // this.task.description = '';
     }
   }
 
